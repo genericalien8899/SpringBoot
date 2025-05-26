@@ -21,6 +21,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+// Code added for error "java.lang.IllegalArgumentException: Name for argument of type [java.lang.String] not specified, and parameter name information not available via reflection."
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-parameters"
 }

@@ -1,5 +1,6 @@
 package spring.course.model;
 
+// New class to use in code.
 public class UserModel {
 
     private String firstname;
@@ -10,6 +11,10 @@ public class UserModel {
         this.firstname = firstname;
         this.lastname = lastname;
         this.membershipId = membershipId;
+    }
+
+    //Empty constructor
+    public UserModel() {
     }
 
     public String getFirstname() {
