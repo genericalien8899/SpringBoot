@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'spring.course'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation("org.springframework.boot:spring-boot-starter-web:3.4.5")
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+    implementation("org.springframework.boot:spring-boot-devtools:3.4.5")
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters"
+}
+
+test {
+    useJUnitPlatform()
+}
