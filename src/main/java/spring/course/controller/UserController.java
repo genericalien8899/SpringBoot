@@ -14,13 +14,7 @@ import java.util.Optional;
 @RestController
 public class UserController {
 
-    private Map<String , UserModel> userMap = new HashMap<>();
 
-    // Initiated as a constructor so gets executed automatically
-    public UserController() {
-        userMap.put("Mrunal",new UserModel("Mrunal","Thakur",8899));
-        userMap.put("Ananya",new UserModel("Ananya","Pandey",6969));
-    }
 
     // GetMapping is used to value from application and send to page.
     @GetMapping("/getUser/{userName}")
