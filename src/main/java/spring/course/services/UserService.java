@@ -23,4 +23,12 @@ public class UserService {
         return userMap.get(userName);
     }
 
+    public void addUser(UserModel user){
+        userMap.put(user.getFirstname(),user);
+    }
+
+    public void deleteUser(String userName){
+        userMap.remove(userName);
+    }
+
 }
