@@ -43,3 +43,7 @@ public class UserController {
     }
 
 }
+
+// Controller is responsible for giving last html webpage or response.
+// Service is used to apply business logic or fetch data from database.
+// cd C:\Users\kisho\IdeaProjects\spring-boot-course
