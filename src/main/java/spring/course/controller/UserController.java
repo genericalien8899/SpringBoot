@@ -1,23 +1,20 @@
 package spring.course.controller;
 
-import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import spring.course.model.UserModel;
-import spring.course.services.UserService;
+import spring.course.services.UserServiceImpl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
 public class UserController {
 
-    private UserService userService;
+    private UserServiceImpl service;
 
-    public UserController(UserService userService) {
+    public UserController(@Qualifier("primary") UserServiceImpl userService) {
         this.service = userService;
     }
 
