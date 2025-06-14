@@ -11,12 +11,14 @@ import java.util.Map;
 @Qualifier("primary")
 public class UserServiceImpl implements UserService {
 
-    private Map<String , UserModel> userMap = new HashMap<>();
+    private final Map<String , UserModel> userMap = new HashMap<>();
 
+    private final TimeService timeService;
     // Initiating a new package services which contains the UserServices. Ultimate goal is to use dependency injection.
-
     // Initiated as a constructor so gets executed automatically
-    public UserServiceImpl() {
+
+    public UserServiceImpl(TimeService timeService) {
+        this.timeService = timeService;
         userMap.put("Mrunal",new UserModel("Mrunal","Thakur",8899));
         userMap.put("Ananya",new UserModel("Ananya","Pandey",6969));
     }
@@ -26,6 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void addUser(UserModel user){
+        userMap.setCreationTime(timeService.getCurrentTime("Chennai"));
         userMap.put(user.getFirstname(),user);
     }
 

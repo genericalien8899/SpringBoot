@@ -6,6 +6,7 @@ public class UserModel {
     private String firstname;
     private String lastname;
     private Integer membershipId;
+    private String creationTime;
 
     public UserModel(String firstname, String lastname, Integer membershipId) {
         this.firstname = firstname;
@@ -40,4 +41,13 @@ public class UserModel {
     public void setMembershipId(Integer membershipId) {
         this.membershipId = membershipId;
     }
+
+    public void setCreationTime(String creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public String getCreationTime() {
+        return creationTime;
+    }
+
 }
