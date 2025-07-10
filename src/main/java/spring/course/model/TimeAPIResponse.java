@@ -5,19 +5,22 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties
 public class TimeAPIResponse {
     
-    private String utc_datetime;
+    private String dateTime;
 
-    public TimeAPIResponse(String utc_datetime) {
-        this.utc_datetime = utc_datetime;
+
+    public TimeAPIResponse(String dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public String getUtc_datetime() {
-        return this.utc_datetime;
+
+    public String getDateTime() {
+        return this.dateTime;
     }
 
-    public void setUtc_datetime(String utc_datetime) {
-        this.utc_datetime = utc_datetime;
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
+
 
     
 }

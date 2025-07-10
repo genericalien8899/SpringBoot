@@ -12,11 +12,9 @@ public class TimeServiceImpl implements TimeService {
     @Override
     public String getCurrentTime(String timezone) {
         
-        HttpResponse<TimeAPIResponse> response = Unirest.get("http://worldtimeapi.org/api/timezone/Chennai/"+timezone).asObject(TimeAPIResponse.class);
+        HttpResponse<TimeAPIResponse> response = Unirest.get("https://www.timeapi.io/api/time/current/zone?timeZone=Europe%2F"+timezone).asObject(TimeAPIResponse.class);
        
-        return response.getBody().getUtc_datetime();
+        return response.getBody().getDateTime();
     }
-
-
 
 }

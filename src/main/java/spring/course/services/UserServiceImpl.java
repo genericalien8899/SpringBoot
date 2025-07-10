@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void addUser(UserModel user){
-        user.setCreationTime(timeService.getCurrentTime("Chennai"));
+        user.setCreationTime(timeService.getCurrentTime("Amsterdam"));
         userMap.put(user.getFirstname(),user);
     }
 
