@@ -1,0 +1,2 @@
+api:
+    endpoint: "https://www.timeapi.io/api/time/current/zone?timeZone=Europe%2F"
