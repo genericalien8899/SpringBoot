@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConfigurationProperties(prefix = "api")
-public class TImeAPIConfig {
+public class TimeAPIConfig {
 
     private String endpoint;
 
