@@ -12,6 +12,7 @@ public class UserModel {
         this.firstname = firstname;
         this.lastname = lastname;
         this.membershipId = membershipId;
+        this.creationTime = null; // Creation time can be set later
     }
 
     //Empty constructor

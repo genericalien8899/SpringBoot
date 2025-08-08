@@ -1,23 +1,22 @@
 package spring.course.data;
 import java.io.Serializable;
+import jakarta.persistence.Entity;
 
 @Entity
 public class UserEntity implements Serializable {
-    public UserEntity() {
-
     private String firstname;
     private String lastname;
     private Integer membershipId;
     private String creationTime;
 
-    public UserModel(String firstname, String lastname, Integer membershipId) {
+    // Empty constructor
+    public UserEntity() {
+    }
+
+    public UserEntity(String firstname, String lastname, Integer membershipId) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.membershipId = membershipId;
-    }
-
-    //Empty constructor
-    public UserModel() {
     }
 
     public String getFirstname() {
@@ -50,6 +49,5 @@ public class UserEntity implements Serializable {
 
     public String getCreationTime() {
         return creationTime;
-    }
     }
 }

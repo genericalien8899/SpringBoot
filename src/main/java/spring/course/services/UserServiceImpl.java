@@ -1,38 +1,47 @@
 package spring.course.services;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Service;
-import spring.course.model.UserModel;
 
+import spring.course.data.UserRepository;
+import spring.course.model.UserModel;
+import spring.course.data.UserEntity;
+import spring.course.mappers.EntityMapper;
+import spring.course.services.TimeService;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.swing.text.html.parser.Entity;
 
 @Service
 @Qualifier("primary")
 public class UserServiceImpl implements UserService {
 
-    private final Map<String , UserModel> userMap = new HashMap<>();
-
     private final TimeService timeService;
     // Initiating a new package services which contains the UserServices. Ultimate goal is to use dependency injection.
     // Initiated as a constructor so gets executed automatically
+    private final UserRepository userRepository; 
 
-    public UserServiceImpl(TimeService timeService) {
+    private final EntityMapper<UserModel, UserEntity> entityMapper;
+
+    public UserServiceImpl(TimeService timeService, UserRepository userRepository, EntityMapper<UserModel, UserEntity> entityMapper) {
         this.timeService = timeService;
-        userMap.put("Mrunal",new UserModel("Mrunal","Thakur",8899));
-        userMap.put("Ananya",new UserModel("Ananya","Pandey",6969));
+        this.userRepository = userRepository;
+        this.entityMapper = entityMapper;
     }
 
     public UserModel getUser(String userName){
-        return userMap.get(userName);
+        return entityMapper.map(userRepository.findByFirstName(userName)); 
     }
 
     public void addUser(UserModel user){
         user.setCreationTime(timeService.getCurrentTime("Amsterdam"));
-        userMap.put(user.getFirstname(),user);
+        userRepository.save(entityMapper.reverseMap(user));
     }
 
     public void deleteUser(String userName){
+        userRepository.deleteByFirstname(username);
         userMap.remove(userName);
     }
 
