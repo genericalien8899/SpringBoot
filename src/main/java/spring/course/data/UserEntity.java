@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class UserEntity implements Serializable {
+    @Id
     private String firstname;
     private String lastname;
     private Integer membershipId;
