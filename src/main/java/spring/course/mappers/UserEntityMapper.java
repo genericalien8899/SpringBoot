@@ -18,11 +18,11 @@ public class UserEntityMapper implements EntityMapper<UserEntity, UserModel> {
     @Override
     public UserEntity reverseMap(UserModel model)
     {
-        return new UserModel(
-                entity.getFirstname(),
-                entity.getLastname(),
-                entity.getMembershipId(),
-                entity.getCreationTime()
+        return new UserEntity(
+                model.getFirstname(),
+                model.getLastname(),
+                model.getMembershipId(),
+                model.getCreationTime()
         );
     }
 }

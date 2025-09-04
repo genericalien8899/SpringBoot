@@ -8,7 +8,7 @@ public class UserModel {
     private Integer membershipId;
     private String creationTime;
 
-    public UserModel(String firstname, String lastname, Integer membershipId) {
+    public UserModel(String firstname, String lastname, Integer membershipId, String creationTime) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.membershipId = membershipId;

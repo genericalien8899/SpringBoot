@@ -11,9 +11,9 @@ Note : C:\Users\User_name cmd location
 - Once pull is completed host the docker image.
 
 - docker run -e MYSQL_ROOT_PASSWORD=test -p 3306:3306 -d mysql:latest
-	-e - make an environmental variable and make it available in container
-	- MYSQL_ROOT_PASSWORD=test - root password for the root user
-	-p port mapping
+	-e -- make an environmental variable and make it available in container
+	- MYSQL_ROOT_PASSWORD=test -- root password for the root user
+	-p -- port mapping
 	3306:3306 - (Host)Spring application's DB port and containers DB port.
 	-d specifies its a daemon container. Docker doesnt wait for the application to end, it just starts it.
 	mysql:latest image name

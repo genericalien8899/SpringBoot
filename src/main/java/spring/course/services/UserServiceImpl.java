@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
 import spring.course.data.UserRepository;
 import spring.course.model.UserModel;
 import spring.course.data.UserEntity;
 import spring.course.mappers.EntityMapper;
 import spring.course.services.TimeService;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import javax.swing.text.html.parser.Entity;
 
@@ -23,26 +24,33 @@ public class UserServiceImpl implements UserService {
     // Initiated as a constructor so gets executed automatically
     private final UserRepository userRepository; 
 
-    private final EntityMapper<UserModel, UserEntity> entityMapper;
+    private final EntityMapper<UserEntity,UserModel> entityMapper;
 
-    public UserServiceImpl(TimeService timeService, UserRepository userRepository, EntityMapper<UserModel, UserEntity> entityMapper) {
+    public UserServiceImpl(TimeService timeService, UserRepository userRepository, EntityMapper<UserEntity,UserModel> entityMapper) {
         this.timeService = timeService;
         this.userRepository = userRepository;
         this.entityMapper = entityMapper;
     }
 
-    public UserModel getUser(String userName){
-        return entityMapper.map(userRepository.findByFirstName(userName)); 
+     @Override
+    public UserModel getUser(String userName) {
+        UserEntity entity = userRepository.findByFirstName(userName);
+        return entityMapper.map(entity);
     }
+
+    // public UserModel getUser(String userName){
+    //     return entityMapper.map(userRepository.findByFirstName(userName)); 
+    // }
 
     public void addUser(UserModel user){
         user.setCreationTime(timeService.getCurrentTime("Amsterdam"));
         userRepository.save(entityMapper.reverseMap(user));
     }
 
+    @Override
+    @Transactional
     public void deleteUser(String userName){
-        userRepository.deleteByFirstname(username);
-        userMap.remove(userName);
+        userRepository.deleteByFirstname(userName);
     }
 
 }

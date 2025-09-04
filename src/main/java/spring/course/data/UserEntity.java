@@ -1,6 +1,6 @@
 package spring.course.data;
 import java.io.Serializable;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
 public class UserEntity implements Serializable {
@@ -14,7 +14,7 @@ public class UserEntity implements Serializable {
     public UserEntity() {
     }
 
-    public UserEntity(String firstname, String lastname, Integer membershipId) {
+    public UserEntity(String firstname, String lastname, Integer membershipId, String creationTime) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.membershipId = membershipId;
