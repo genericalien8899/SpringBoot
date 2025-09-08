@@ -3,14 +3,14 @@ package spring.course.model;
 // New class to use in code.
 public class UserModel {
 
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private Integer membershipId;
     private String creationTime;
 
-    public UserModel(String firstname, String lastname, Integer membershipId, String creationTime) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public UserModel(String firstName, String lastName, Integer membershipId, String creationTime) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.membershipId = membershipId;
         this.creationTime = null; // Creation time can be set later
     }
@@ -19,20 +19,20 @@ public class UserModel {
     public UserModel() {
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getMembershipId() {

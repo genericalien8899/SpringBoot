@@ -1,15 +1,20 @@
 package spring.course.mappers;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
 import spring.course.data.UserEntity;
 import spring.course.model.UserModel;
 
+@Component
+@Primary
 public class UserEntityMapper implements EntityMapper<UserEntity, UserModel> {
     @Override
     public UserModel map(UserEntity entity)
     {
         return new UserModel(
-                entity.getFirstname(),
-                entity.getLastname(),
+                entity.getFirstName(),
+                entity.getLastName(),
                 entity.getMembershipId(),
                 entity.getCreationTime()
         );
@@ -19,8 +24,8 @@ public class UserEntityMapper implements EntityMapper<UserEntity, UserModel> {
     public UserEntity reverseMap(UserModel model)
     {
         return new UserEntity(
-                model.getFirstname(),
-                model.getLastname(),
+                model.getFirstName(),
+                model.getLastName(),
                 model.getMembershipId(),
                 model.getCreationTime()
         );

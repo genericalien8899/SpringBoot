@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void deleteUser(String userName){
-        userRepository.deleteByFirstname(userName);
+        userRepository.deleteByFirstName(userName);
     }
 
 }
